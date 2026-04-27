@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAPP Sense Store — modular per-channel output overlays</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: #0d1117; color: #e6edf3; line-height: 1.5; min-height: 100vh;
+  }
+  a { color: #58a6ff; }
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+  header {
+    border-bottom: 1px solid #21262d; padding-bottom: 22px; margin-bottom: 32px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  header .icon { font-size: 36px; }
+  header h1 { font-size: 24px; font-weight: 700; }
+  header h1 .badge {
+    margin-left: 10px; font-size: 9px; letter-spacing: 1.5px;
+    color: #58a6ff; vertical-align: middle;
+    border: 1px solid #1f6feb; padding: 3px 8px; border-radius: 999px;
+    text-transform: uppercase; font-weight: 700;
+  }
+  header h1 .sub {
+    display: block; font-size: 12px; color: #8b949e;
+    font-family: "SF Mono", monospace; margin-top: 4px; letter-spacing: .5px;
+  }
+  header .controls { margin-left: auto; display: flex; gap: 14px; font-size: 12px; color: #8b949e; }
+
+  .help {
+    background: #161b22; border: 1px solid #21262d; border-radius: 12px;
+    padding: 16px 20px; margin-bottom: 28px; font-size: 13px; color: #c9d1d9;
+  }
+  .help h2 { font-size: 13px; color: #8b949e; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .help code {
+    background: #0d1117; border: 1px solid #30363d; padding: 2px 8px;
+    border-radius: 5px; font-size: 11px; font-family: "SF Mono", monospace; color: #58a6ff;
+  }
+  .help pre {
+    background: #0d1117; border: 1px solid #30363d; border-radius: 6px;
+    padding: 10px 12px; margin-top: 10px; overflow-x: auto;
+    font-family: "SF Mono", monospace; font-size: 11px;
+  }
+
+  .grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .card {
+    background: #161b22; border: 1px solid #21262d; border-radius: 12px;
+    padding: 22px 24px; transition: border-color .15s;
+  }
+  .card:hover { border-color: #58a6ff; }
+  .card .head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+  .card .name { font-size: 18px; font-weight: 700; }
+  .card .pub { color: #8b949e; font-family: "SF Mono", monospace; font-size: 11px; }
+  .card .delim {
+    background: #1f6feb33; color: #58a6ff;
+    padding: 2px 8px; border-radius: 999px;
+    font-size: 11px; font-family: "SF Mono", monospace; font-weight: 700;
+  }
+  .card .summary { font-size: 13px; color: #8b949e; margin: 8px 0 12px; }
+  .card .surfaces { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .card .surface {
+    background: rgba(63,185,80,.12); color: #3fb950;
+    padding: 1px 8px; border-radius: 999px;
+    font-size: 10px; text-transform: uppercase; letter-spacing: .5px; font-weight: 700;
+    font-family: "SF Mono", monospace;
+  }
+  .footer {
+    margin-top: 40px; padding-top: 20px; border-top: 1px solid #21262d;
+    color: #8b949e; font-size: 12px; text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+<header>
+  <div class="icon">🎙️</div>
+  <div>
+    <h1>RAPP Sense Store <span class="badge">official</span>
+      <span class="sub">modular per-channel output overlays · drop into your brainstem · run locally</span>
+    </h1>
+  </div>
+  <div class="controls">
+    <a href="./SPEC.md">SPEC ↗</a>
+    <a href="https://github.com/kody-w/RAPP_Store" target="_blank">RAPP Store (rapps) ↗</a>
+    <a href="https://github.com/kody-w/RAR" target="_blank">RAR (bare agents) ↗</a>
+    <a href="https://github.com/kody-w/RAPP_Sense_Store" target="_blank">source ↗</a>
+  </div>
+</header>
+
+<div class="help">
+  <h2>What is a sense?</h2>
+  A sense is the smallest installable artifact in the platform — <strong>one Python file</strong> that adds a delimited output channel to every reply.
+  The brainstem composes the sense's <code>system_prompt</code> into the system message; the LLM emits <code>|||DELIMITER|||content</code>;
+  frontends parse and render. Each sense declares <code>surfaces</code> (chat, voice, mobile, cards) so the right overlays activate per channel.
+  <br><br>
+  <strong>What it isn't.</strong> Senses are not agents. No <code>BasicAgent</code>, no <code>perform()</code>, no tool-call schema.
+  For agents see <a href="https://github.com/kody-w/RAR" target="_blank">kody-w/RAR</a>; for bundles see <a href="https://github.com/kody-w/RAPP_Store" target="_blank">kody-w/RAPP_Store</a>.
+  Per <a href="https://github.com/kody-w/RAPP/blob/main/CONSTITUTION.md#article-xxiv--senses-are-agent-first-frontends-are-modular-consumers" target="_blank">Constitution Article XXIV</a>, senses are agent-first; frontends are modular consumers.
+  <br><br>
+  <strong>Install path:</strong>
+  <pre>curl -fsSL &lt;url&gt; > ~/.brainstem/src/rapp_brainstem/utils/senses/&lt;slug&gt;_sense.py
+# brainstem auto-discovers *_sense.py at startup. Restart the brainstem.</pre>
+</div>
+
+<div class="grid" id="grid">
+  <div class="card"><div class="summary">Loading senses…</div></div>
+</div>
+
+<div class="footer">
+  Catalog format: <code>rapp-sense-store/1.0</code> ·
+  Submit a sense via the <a href="https://github.com/kody-w/RAPP_Sense_Store/issues/new?template=submit-sense.yml">[SENSE] issue template</a> ·
+  See <a href="./SPEC.md">SPEC.md</a> for the contract
+</div>
+
+</main>
+
+<script>
+'use strict';
+function $(s) { return document.querySelector(s); }
+function el(t, a={}, k=[]) {
+  const e = document.createElement(t);
+  for (const [k2,v] of Object.entries(a)) {
+    if (k2==='class') e.className=v;
+    else if (k2==='text') e.textContent=v;
+    else if (k2==='html') e.innerHTML=v;
+    else e.setAttribute(k2, v);
+  }
+  for (const c of (Array.isArray(k)?k:[k])) {
+    if (c==null) continue;
+    e.appendChild(typeof c==='string' ? document.createTextNode(c) : c);
+  }
+  return e;
+}
+
+(async function boot() {
+  let cat;
+  try {
+    cat = await (await fetch('./index.json', { cache: 'no-cache' })).json();
+  } catch (e) {
+    $('#grid').innerHTML = `<div class="card"><div class="summary">Failed to load catalog: ${e.message}</div></div>`;
+    return;
+  }
+  const grid = $('#grid');
+  grid.innerHTML = '';
+  const senses = cat.senses || [];
+  if (!senses.length) {
+    grid.appendChild(el('div', { class: 'card' }, [
+      el('div', { class: 'head' }, [el('div', { class: 'name', text: '(no senses yet)' })]),
+      el('div', { class: 'summary', text:
+        'Catalog is empty. The first 5 senses (eli5, emoji, haiku, headline, tldr) ' +
+        'migrate from kody-w/RAPP_Store/senses/ via [SENSE] issue submissions per Proposal 0001.' }),
+    ]));
+    return;
+  }
+  for (const s of senses) {
+    grid.appendChild(el('div', { class: 'card' }, [
+      el('div', { class: 'head' }, [
+        el('div', { class: 'name', text: s.name }),
+        el('div', { class: 'pub', text: s.publisher + ' · v' + (s.version || '?') }),
+        el('div', { class: 'delim', text: s.delimiter }),
+      ]),
+      el('div', { class: 'summary', text: s.description || '' }),
+      el('div', { class: 'surfaces' },
+        (s.surfaces || ['chat']).map(x => el('span', { class: 'surface', text: x }))),
+      el('div', {}, [
+        el('a', { href: s.url, download: s.filename, text: '⬇ Download ' + s.filename }),
+      ]),
+    ]));
+  }
+})();
+</script>
+
+</body>
+</html>

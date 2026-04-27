@@ -1,0 +1,12 @@
+{
+  "schema": "rapp-sense-store/1.0",
+  "name": "RAPP Sense Store",
+  "description": "Public catalog of RAPP senses — modular per-channel output overlays. Drop into any brainstem's rapp_brainstem/utils/senses/ directory. Sibling to kody-w/RAPP_Store (rapplications) and kody-w/RAR (bare agents).",
+  "maintainer": "@kody-w",
+  "version": "1.0.0",
+  "generated_at": "2026-04-27T00:00:00Z",
+  "homepage": "https://github.com/kody-w/RAPP_Sense_Store",
+  "spec": "https://github.com/kody-w/RAPP_Sense_Store/blob/main/SPEC.md",
+  "constitution": "https://github.com/kody-w/RAPP/blob/main/CONSTITUTION.md#article-xxiv--senses-are-agent-first-frontends-are-modular-consumers",
+  "senses": []
+}

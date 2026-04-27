@@ -1,0 +1,90 @@
+name: Approve sense submission
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: sense-state
+  cancel-in-progress: false
+
+jobs:
+  approve:
+    if: |
+      startsWith(github.event.issue.title, '[SENSE]') &&
+      github.event.label.name == 'approved' &&
+      github.event.issue.state == 'open' &&
+      contains(github.event.issue.labels.*.name, 'sense-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Promote to live catalog
+        id: promote
+        continue-on-error: true
+        run: |
+          set +e
+          python3 scripts/promote_sense.py \
+            --event-path "$GITHUB_EVENT_PATH" \
+            --staging-dir staging/ \
+            --catalog index.json \
+            > /tmp/report.md
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('/tmp/report.md', 'utf8');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
+
+      - name: Commit promotion
+        if: steps.promote.outputs.exit_code == '0'
+        run: |
+          git config user.name "rapp-sense-store-bot"
+          git config user.email "rapp-sense-store-bot@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No promotion changes."
+          else
+            git commit -m "promote: sense for issue #${{ github.event.issue.number }}"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              echo "push attempt $i failed; retrying"
+              sleep 3
+            done
+          fi
+
+      - name: Close issue
+        if: steps.promote.outputs.exit_code == '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['promoted']
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });

@@ -1,0 +1,55 @@
+name: Submit a sense
+description: Add or update a sense in the RAPP Sense Store
+title: "[SENSE] @your-username/your_sense_slug"
+labels:
+  - sense-submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## How sense submissions work
+
+        Paste your sense's `*_sense.py` source in a fenced ```` ```python ```` block below. Required exports per [SPEC.md](https://github.com/kody-w/RAPP_Sense_Store/blob/main/SPEC.md): `name`, `delimiter`, `response_key`, `wrapper_tag`, `system_prompt`. Optional: `surfaces`, `__manifest__`.
+
+        The receiver workflow will validate against SPEC §4. On pass, the sense is staged for maintainer approval. On fail, you'll see a comment with the specific error codes.
+
+        Title format must be exactly `[SENSE] @<your-github-username>/<slug>` — the `<slug>` must match the `name` exported by the sense file.
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Sense source (Python)
+      description: Paste the full `<slug>_sense.py` file here.
+      render: python
+      placeholder: |
+        # senses/@your-username/example_sense.py
+        name = "example"
+        delimiter = "|||EXAMPLE|||"
+        response_key = "example_response"
+        wrapper_tag = "example"
+        surfaces = ["chat"]
+        system_prompt = (
+            "After your main reply, append `|||EXAMPLE|||` followed by ... "
+            "Always emit — empty is not allowed."
+        )
+
+        __manifest__ = {
+            "schema": "rapp-sense/1.0",
+            "name": "@your-username/example",
+            "version": "0.1.0",
+            "description": "An example sense.",
+        }
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contract
+    attributes:
+      label: Submission checklist
+      options:
+        - label: My sense conforms to [SPEC.md](https://github.com/kody-w/RAPP_Sense_Store/blob/main/SPEC.md) §2 and §4.
+          required: true
+        - label: My `delimiter` is unique (does not collide with any sense already in the catalog).
+          required: true
+        - label: I am the publisher (`@my-github-handle` matches the publisher in my title), or I have authorization to publish under the namespace declared.
+          required: true
