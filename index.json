@@ -4,7 +4,7 @@
   "description": "Public catalog of RAPP senses — modular per-channel output overlays. Drop into any brainstem's rapp_brainstem/utils/senses/ directory. Sibling to kody-w/RAPP_Store (rapplications) and kody-w/RAR (bare agents).",
   "maintainer": "@kody-w",
   "version": "1.0.0",
-  "generated_at": "2026-04-27T23:05:41Z",
+  "generated_at": "2026-04-27T23:05:53Z",
   "homepage": "https://github.com/kody-w/RAPP_Sense_Store",
   "spec": "https://github.com/kody-w/RAPP_Sense_Store/blob/main/SPEC.md",
   "constitution": "https://github.com/kody-w/RAPP/blob/main/CONSTITUTION.md#article-xxiv--senses-are-agent-first-frontends-are-modular-consumers",
@@ -68,6 +68,21 @@
       "filename": "haiku_sense.py",
       "url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/haiku_sense.py",
       "sha256": "e9069493ae4302176bbbc4aaecea2b62a5f547c6b0f9f83b2633f0172a082663"
+    },
+    {
+      "name": "tldr",
+      "publisher": "@rapp",
+      "version": "0.1.0",
+      "delimiter": "|||TLDR|||",
+      "response_key": "tldr_response",
+      "wrapper_tag": "tldr",
+      "surfaces": [
+        "chat"
+      ],
+      "description": "TLDR — the same response, compressed to one sentence.",
+      "filename": "tldr_sense.py",
+      "url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/tldr_sense.py",
+      "sha256": "7d3e1d55bf74644ccfaf937fcee7670e69f20cc535ebb17b0f1ecc9d1b45929e"
     }
   ]
 }
