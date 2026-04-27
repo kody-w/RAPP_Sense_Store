@@ -9,6 +9,16 @@
       "delimiter": "|||ELI5|||",
       "sha256": "ceba5ec8d193bc077243eb14bf6b72b0ae24b6588ab6feb4d8bddaab6546dd24",
       "staged_path": "staging/@rapp/eli5_sense.py"
+    },
+    {
+      "issue": 2,
+      "submitter": "@kody-w",
+      "publisher": "@rapp",
+      "slug": "emoji",
+      "name": "emoji",
+      "delimiter": "|||EMOJI|||",
+      "sha256": "7416feef480c2773a2133e3491b104a4aaf0e8a6ccfb97898e474ff69a476841",
+      "staged_path": "staging/@rapp/emoji_sense.py"
     }
   ]
 }
