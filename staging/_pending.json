@@ -1,16 +1,6 @@
 {
   "items": [
     {
-      "issue": 1,
-      "submitter": "@kody-w",
-      "publisher": "@rapp",
-      "slug": "eli5",
-      "name": "eli5",
-      "delimiter": "|||ELI5|||",
-      "sha256": "ceba5ec8d193bc077243eb14bf6b72b0ae24b6588ab6feb4d8bddaab6546dd24",
-      "staged_path": "staging/@rapp/eli5_sense.py"
-    },
-    {
       "issue": 2,
       "submitter": "@kody-w",
       "publisher": "@rapp",
