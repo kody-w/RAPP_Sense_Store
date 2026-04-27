@@ -11,16 +11,6 @@
       "staged_path": "staging/@rapp/haiku_sense.py"
     },
     {
-      "issue": 4,
-      "submitter": "@kody-w",
-      "publisher": "@rapp",
-      "slug": "headline",
-      "name": "headline",
-      "delimiter": "|||HEADLINE|||",
-      "sha256": "641d3bbd3d8a5826d0c9f99c4db39c514728bf974d6982f3de250a081584e228",
-      "staged_path": "staging/@rapp/headline_sense.py"
-    },
-    {
       "issue": 5,
       "submitter": "@kody-w",
       "publisher": "@rapp",
