@@ -19,6 +19,16 @@
       "delimiter": "|||EMOJI|||",
       "sha256": "7416feef480c2773a2133e3491b104a4aaf0e8a6ccfb97898e474ff69a476841",
       "staged_path": "staging/@rapp/emoji_sense.py"
+    },
+    {
+      "issue": 3,
+      "submitter": "@kody-w",
+      "publisher": "@rapp",
+      "slug": "haiku",
+      "name": "haiku",
+      "delimiter": "|||HAIKU|||",
+      "sha256": "e9069493ae4302176bbbc4aaecea2b62a5f547c6b0f9f83b2633f0172a082663",
+      "staged_path": "staging/@rapp/haiku_sense.py"
     }
   ]
 }
