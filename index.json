@@ -4,7 +4,6 @@
   "description": "Public catalog of RAPP senses — modular per-channel output overlays. Drop into any brainstem's rapp_brainstem/utils/senses/ directory. Sibling to kody-w/RAPP_Store (rapplications) and kody-w/RAR (bare agents).",
   "maintainer": "@kody-w",
   "version": "1.0.0",
-  "generated_at": "2026-04-27T23:05:53Z",
   "homepage": "https://github.com/kody-w/RAPP_Sense_Store",
   "spec": "https://github.com/kody-w/RAPP_Sense_Store/blob/main/SPEC.md",
   "constitution": "https://github.com/kody-w/RAPP/blob/main/CONSTITUTION.md#article-xxiv--senses-are-agent-first-frontends-are-modular-consumers",
@@ -40,21 +39,6 @@
       "sha256": "7416feef480c2773a2133e3491b104a4aaf0e8a6ccfb97898e474ff69a476841"
     },
     {
-      "name": "headline",
-      "publisher": "@rapp",
-      "version": "0.1.0",
-      "delimiter": "|||HEADLINE|||",
-      "response_key": "headline_response",
-      "wrapper_tag": "headline",
-      "surfaces": [
-        "chat"
-      ],
-      "description": "HEADLINE — the same response, as a news headline.",
-      "filename": "headline_sense.py",
-      "url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/headline_sense.py",
-      "sha256": "641d3bbd3d8a5826d0c9f99c4db39c514728bf974d6982f3de250a081584e228"
-    },
-    {
       "name": "haiku",
       "publisher": "@rapp",
       "version": "0.1.0",
@@ -68,6 +52,21 @@
       "filename": "haiku_sense.py",
       "url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/haiku_sense.py",
       "sha256": "e9069493ae4302176bbbc4aaecea2b62a5f547c6b0f9f83b2633f0172a082663"
+    },
+    {
+      "name": "headline",
+      "publisher": "@rapp",
+      "version": "0.1.0",
+      "delimiter": "|||HEADLINE|||",
+      "response_key": "headline_response",
+      "wrapper_tag": "headline",
+      "surfaces": [
+        "chat"
+      ],
+      "description": "HEADLINE — the same response, as a news headline.",
+      "filename": "headline_sense.py",
+      "url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/headline_sense.py",
+      "sha256": "641d3bbd3d8a5826d0c9f99c4db39c514728bf974d6982f3de250a081584e228"
     },
     {
       "name": "tldr",
@@ -84,5 +83,6 @@
       "url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/tldr_sense.py",
       "sha256": "7d3e1d55bf74644ccfaf937fcee7670e69f20cc535ebb17b0f1ecc9d1b45929e"
     }
-  ]
+  ],
+  "generated_at": "2026-04-27T23:06:45Z"
 }
