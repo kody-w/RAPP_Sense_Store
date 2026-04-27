@@ -1,16 +1,6 @@
 {
   "items": [
     {
-      "issue": 2,
-      "submitter": "@kody-w",
-      "publisher": "@rapp",
-      "slug": "emoji",
-      "name": "emoji",
-      "delimiter": "|||EMOJI|||",
-      "sha256": "7416feef480c2773a2133e3491b104a4aaf0e8a6ccfb97898e474ff69a476841",
-      "staged_path": "staging/@rapp/emoji_sense.py"
-    },
-    {
       "issue": 3,
       "submitter": "@kody-w",
       "publisher": "@rapp",
