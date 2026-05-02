@@ -1,0 +1,23 @@
+{
+  "schema": "rapp-sense-pokedex-sense/1.0",
+  "id": "rapp__eli5",
+  "name": "eli5",
+  "rappid": "rappid:v2:sense:@rapp/eli5:ceba5ec8d193bc077243eb14bf6b72b0",
+  "version": "0.1.0",
+  "publisher": "@rapp",
+  "description": "ELI5 \u2014 the same response, explained to a five-year-old.",
+  "delimiter": "|||ELI5|||",
+  "response_key": "eli5_response",
+  "wrapper_tag": "eli5",
+  "surfaces": [
+    "chat"
+  ],
+  "filename": "eli5_sense.py",
+  "sha256": "ceba5ec8d193bc077243eb14bf6b72b0ae24b6588ab6feb4d8bddaab6546dd24",
+  "parent_rappid": "rappid:v2:prototype:@rapp/origin:0b635450c04249fbb4b1bdb571044dec@github.com/kody-w/RAPP",
+  "sprite_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sprite/rapp__eli5.svg",
+  "py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/eli5_sense.py",
+  "api_py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sense/rapp__eli5.py",
+  "self_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sense/rapp__eli5.json",
+  "github_url": "https://github.com/kody-w/RAPP_Sense_Store/blob/main/senses/@rapp/eli5_sense.py"
+}

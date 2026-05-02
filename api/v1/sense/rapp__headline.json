@@ -1,0 +1,23 @@
+{
+  "schema": "rapp-sense-pokedex-sense/1.0",
+  "id": "rapp__headline",
+  "name": "headline",
+  "rappid": "rappid:v2:sense:@rapp/headline:641d3bbd3d8a5826d0c9f99c4db39c51",
+  "version": "0.1.0",
+  "publisher": "@rapp",
+  "description": "HEADLINE \u2014 the same response, as a news headline.",
+  "delimiter": "|||HEADLINE|||",
+  "response_key": "headline_response",
+  "wrapper_tag": "headline",
+  "surfaces": [
+    "chat"
+  ],
+  "filename": "headline_sense.py",
+  "sha256": "641d3bbd3d8a5826d0c9f99c4db39c514728bf974d6982f3de250a081584e228",
+  "parent_rappid": "rappid:v2:prototype:@rapp/origin:0b635450c04249fbb4b1bdb571044dec@github.com/kody-w/RAPP",
+  "sprite_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sprite/rapp__headline.svg",
+  "py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/headline_sense.py",
+  "api_py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sense/rapp__headline.py",
+  "self_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sense/rapp__headline.json",
+  "github_url": "https://github.com/kody-w/RAPP_Sense_Store/blob/main/senses/@rapp/headline_sense.py"
+}

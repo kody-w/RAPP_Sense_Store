@@ -1,0 +1,23 @@
+{
+  "schema": "rapp-sense-pokedex-sense/1.0",
+  "id": "rapp__tldr",
+  "name": "tldr",
+  "rappid": "rappid:v2:sense:@rapp/tldr:7d3e1d55bf74644ccfaf937fcee7670e",
+  "version": "0.1.0",
+  "publisher": "@rapp",
+  "description": "TLDR \u2014 the same response, compressed to one sentence.",
+  "delimiter": "|||TLDR|||",
+  "response_key": "tldr_response",
+  "wrapper_tag": "tldr",
+  "surfaces": [
+    "chat"
+  ],
+  "filename": "tldr_sense.py",
+  "sha256": "7d3e1d55bf74644ccfaf937fcee7670e69f20cc535ebb17b0f1ecc9d1b45929e",
+  "parent_rappid": "rappid:v2:prototype:@rapp/origin:0b635450c04249fbb4b1bdb571044dec@github.com/kody-w/RAPP",
+  "sprite_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sprite/rapp__tldr.svg",
+  "py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/tldr_sense.py",
+  "api_py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sense/rapp__tldr.py",
+  "self_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sense/rapp__tldr.json",
+  "github_url": "https://github.com/kody-w/RAPP_Sense_Store/blob/main/senses/@rapp/tldr_sense.py"
+}
