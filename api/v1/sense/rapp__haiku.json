@@ -1,0 +1,23 @@
+{
+  "schema": "rapp-sense-pokedex-sense/1.0",
+  "id": "rapp__haiku",
+  "name": "haiku",
+  "rappid": "rappid:v2:sense:@rapp/haiku:e9069493ae4302176bbbc4aaecea2b62",
+  "version": "0.1.0",
+  "publisher": "@rapp",
+  "description": "HAIKU \u2014 the same response, as a 5-7-5 poem.",
+  "delimiter": "|||HAIKU|||",
+  "response_key": "haiku_response",
+  "wrapper_tag": "haiku",
+  "surfaces": [
+    "chat"
+  ],
+  "filename": "haiku_sense.py",
+  "sha256": "e9069493ae4302176bbbc4aaecea2b62a5f547c6b0f9f83b2633f0172a082663",
+  "parent_rappid": "rappid:v2:prototype:@rapp/origin:0b635450c04249fbb4b1bdb571044dec@github.com/kody-w/RAPP",
+  "sprite_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sprite/rapp__haiku.svg",
+  "py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/haiku_sense.py",
+  "api_py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sense/rapp__haiku.py",
+  "self_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sense/rapp__haiku.json",
+  "github_url": "https://github.com/kody-w/RAPP_Sense_Store/blob/main/senses/@rapp/haiku_sense.py"
+}
