@@ -2,7 +2,7 @@
   "schema": "rapp-sense-pokedex-sense/1.0",
   "id": "rapp__emoji",
   "name": "emoji",
-  "rappid": "rappid:v2:sense:@rapp/emoji:7416feef480c2773a2133e3491b104a4",
+  "rappid": "rappid:v2:sense:@rapp/emoji:e6a66c784c98084ed30ea708b2019d51",
   "version": "0.1.0",
   "publisher": "@rapp",
   "description": "EMOJI \u2014 the same response, as an emoji sequence.",
@@ -13,7 +13,7 @@
     "chat"
   ],
   "filename": "emoji_sense.py",
-  "sha256": "7416feef480c2773a2133e3491b104a4aaf0e8a6ccfb97898e474ff69a476841",
+  "sha256": "e6a66c784c98084ed30ea708b2019d5150fac2b84c20030c195b2f22f0855e03",
   "parent_rappid": "rappid:v2:prototype:@rapp/origin:0b635450c04249fbb4b1bdb571044dec@github.com/kody-w/RAPP",
   "sprite_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sprite/rapp__emoji.svg",
   "py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/emoji_sense.py",

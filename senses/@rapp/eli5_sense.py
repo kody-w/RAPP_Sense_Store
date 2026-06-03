@@ -5,7 +5,7 @@ understand. Same answer, different audience. Frontends with an
 "explain it simply" toggle swap eli5_response in for the main reply;
 teaching/onboarding UIs render it as a side-by-side companion.
 
-Install: drop in rapp_brainstem/senses/. Restart not required.
+Install: drop in rapp_brainstem/utils/senses/. The brainstem auto-discovers *_sense.py at startup; restart the brainstem.
 """
 
 name = "eli5"

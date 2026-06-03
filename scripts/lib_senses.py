@@ -23,6 +23,11 @@ from typing import Any
 SCHEMA_SENSE = "rapp-sense/1.0"
 SCHEMA_INDEX = "rapp-sense-store/1.0"
 
+# Default version for a manifest-less first publish. Used as the floor for the
+# bump check AND the catalog entry so a sense without __manifest__.version is
+# treated consistently across the catalog and the pokedex.
+DEFAULT_VERSION = "0.1.0"
+
 NAME_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 PUBLISHER_RE = re.compile(r"^@[a-zA-Z0-9][a-zA-Z0-9-]*$")
 DELIMITER_RE = re.compile(r"^\S+$")
@@ -146,8 +151,8 @@ def validate_sense_text(source: str, *,
     if existing_catalog is not None and name:
         prev = _find_catalog_entry(existing_catalog, name)
         if prev:
-            new_v = (manifest or {}).get("version", "0.0.0")
-            old_v = prev.get("version", "0.0.0")
+            new_v = (manifest or {}).get("version", DEFAULT_VERSION)
+            old_v = prev.get("version", DEFAULT_VERSION)
             if not _semver_gt(new_v, old_v):
                 errors.append(
                     f"E_VERSION_NOT_BUMPED: '{name}' already in catalog at v{old_v}; "
@@ -190,7 +195,7 @@ def build_index_entry(result: ValidationResult, publisher: str) -> dict:
     return {
         "name": name,
         "publisher": publisher,
-        "version": (result.manifest or {}).get("version", "0.1.0"),
+        "version": (result.manifest or {}).get("version", DEFAULT_VERSION),
         "delimiter": src.get("delimiter"),
         "response_key": src.get("response_key"),
         "wrapper_tag": src.get("wrapper_tag"),

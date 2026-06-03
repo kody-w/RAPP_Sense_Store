@@ -2,7 +2,7 @@
   "schema": "rapp-sense-pokedex-sense/1.0",
   "id": "rapp__headline",
   "name": "headline",
-  "rappid": "rappid:v2:sense:@rapp/headline:641d3bbd3d8a5826d0c9f99c4db39c51",
+  "rappid": "rappid:v2:sense:@rapp/headline:70f8cf64b5b74f9779c8a0f795cebb90",
   "version": "0.1.0",
   "publisher": "@rapp",
   "description": "HEADLINE \u2014 the same response, as a news headline.",
@@ -13,7 +13,7 @@
     "chat"
   ],
   "filename": "headline_sense.py",
-  "sha256": "641d3bbd3d8a5826d0c9f99c4db39c514728bf974d6982f3de250a081584e228",
+  "sha256": "70f8cf64b5b74f9779c8a0f795cebb906401a09d6b85c81eb2768809c8d8e3b9",
   "parent_rappid": "rappid:v2:prototype:@rapp/origin:0b635450c04249fbb4b1bdb571044dec@github.com/kody-w/RAPP",
   "sprite_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sprite/rapp__headline.svg",
   "py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@rapp/headline_sense.py",

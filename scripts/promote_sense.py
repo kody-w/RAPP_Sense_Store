@@ -66,7 +66,7 @@ def promote(event: dict, staging_dir: Path, catalog_path: Path) -> tuple[bool, s
     # Re-validate the actual on-disk file to recompute fields from authoritative
     # bytes (don't trust the staging metadata blindly).
     catalog = json.loads(catalog_path.read_text()) if catalog_path.is_file() else {
-        "schema": "rapp-sense-store/1.0", "senses": [],
+        "schema": lib_senses.SCHEMA_INDEX, "senses": [],
     }
     result = lib_senses.validate_sense_text(target.read_text())
     if not result.ok:

@@ -23,6 +23,12 @@ needed; this is a pure transformation.
 The rapp-zoo Discover tab fetches from this + RAPP_Store + RAR and
 renders the union as one Pokédex. Per Article XXXVII, every entry is
 an organism; the catalog of choice is just where the user's eye lands.
+
+This catalog is the sense store's `rapp-static-mcp/1.0` on-ramp (built on
+`rapp-static-api/1.0`): a content-addressed catalog of `.py` frames served
+from raw.githubusercontent.com. The `sha256` already emitted per entry lets
+an MCP host pin a sense by sha8 and verify-before-exec — MCP is transport
+over `/chat` ("Chat Is The Only Wire"), not a new artifact tier here.
 """
 
 from __future__ import annotations
@@ -97,7 +103,7 @@ def _build_entry(sense: dict) -> dict:
         "id": slug,
         "name": name,
         "rappid": rappid,
-        "version": sense.get("version", "0.0.0"),
+        "version": sense.get("version", "0.1.0"),  # first-publish default; matches lib_senses.DEFAULT_VERSION
         "publisher": publisher,
         "description": sense.get("description"),
 

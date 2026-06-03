@@ -5,7 +5,7 @@ sentence. For UIs that show a one-line preview, mobile shells with
 limited screen real estate, or anywhere "what's the point of this
 answer" matters more than the answer itself.
 
-Install: drop in rapp_brainstem/senses/. Restart not required.
+Install: drop in rapp_brainstem/utils/senses/. The brainstem auto-discovers *_sense.py at startup; restart the brainstem.
 """
 
 name = "tldr"

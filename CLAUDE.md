@@ -48,3 +48,5 @@ Senses are governed by:
 | **this repo** | senses | `senses/@<publisher>/<slug>_sense.py` | `[SENSE]` |
 
 A single bare agent in RAR — `@rapp/rapp_publish_agent` — can auto-route a submission to the right repo by detecting artifact type.
+
+This catalog (`index.json`) and its static pokedex API (`api/v1/`) are also consumable by `rapp-mcp` hosts. MCP is **transport** realizing "Chat Is The Only Wire" — a Layer-2 caller of `/chat`, not a fourth store or taxonomy. The pokedex API is the store's `rapp-static-mcp/1.0` on-ramp (each entry's `sha256` enables verify-before-exec by sha8).

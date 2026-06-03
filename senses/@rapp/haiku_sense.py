@@ -4,7 +4,7 @@ A sense that translates the main reply into a single haiku. Frontends
 that want a "poetic mode" pin haiku_response below the main reply, or
 swap it in entirely for a contemplative UI.
 
-Install: drop in rapp_brainstem/senses/. Restart not required.
+Install: drop in rapp_brainstem/utils/senses/. The brainstem auto-discovers *_sense.py at startup; restart the brainstem.
 """
 
 name = "haiku"

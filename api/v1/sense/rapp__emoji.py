@@ -5,7 +5,7 @@ tells the same story. Frontends with chat-bubble UIs render this above
 or alongside the prose; teaches accessibility tools an at-a-glance
 summary; works as a tone fingerprint for the response.
 
-Install: drop in rapp_brainstem/senses/. Restart not required.
+Install: drop in rapp_brainstem/utils/senses/. The brainstem auto-discovers *_sense.py at startup; restart the brainstem.
 """
 
 name = "emoji"
