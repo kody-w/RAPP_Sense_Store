@@ -1,0 +1,23 @@
+{
+  "schema": "rapp-sense-pokedex-sense/1.0",
+  "id": "kody-w__spark",
+  "name": "spark",
+  "rappid": "rappid:v2:sense:@kody-w/spark:af421a84f0e55ac872ad0c21f5b1b6fb",
+  "version": "0.1.0",
+  "publisher": "@kody-w",
+  "description": "SPARK \u2014 append a fresh creative chain prompt each turn (in the style of the 10 mind-blowers).",
+  "delimiter": "|||SPARK|||",
+  "response_key": "spark_suggestion",
+  "wrapper_tag": "spark",
+  "surfaces": [
+    "chat"
+  ],
+  "filename": "spark_sense.py",
+  "sha256": "af421a84f0e55ac872ad0c21f5b1b6fb554c48485d4cc4eccb523b4545060f58",
+  "parent_rappid": "rappid:v2:prototype:@rapp/origin:0b635450c04249fbb4b1bdb571044dec@github.com/kody-w/RAPP",
+  "sprite_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sprite/kody-w__spark.svg",
+  "py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/senses/@kody-w/spark_sense.py",
+  "api_py_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sense/kody-w__spark.py",
+  "self_url": "https://raw.githubusercontent.com/kody-w/RAPP_Sense_Store/main/api/v1/sense/kody-w__spark.json",
+  "github_url": "https://github.com/kody-w/RAPP_Sense_Store/blob/main/senses/@kody-w/spark_sense.py"
+}

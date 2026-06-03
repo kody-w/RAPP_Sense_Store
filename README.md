@@ -14,7 +14,7 @@ name = "headline"
 delimiter = "|||HEADLINE|||"
 response_key = "headline_response"
 wrapper_tag = "headline"
-surfaces = ["chat", "mobile"]
+surfaces = ["chat"]
 system_prompt = (
     "After your main reply, append `|||HEADLINE|||` followed by a single "
     "headline that captures the answer's essence the way a news ticker would. "

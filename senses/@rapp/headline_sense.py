@@ -4,7 +4,7 @@ A sense that translates the main reply into a punchy headline. For
 notification UIs, push-style summaries, dashboard cards, anywhere a
 glanceable hook beats prose. Verb-driven, present tense, no clickbait.
 
-Install: drop in rapp_brainstem/senses/. Restart not required.
+Install: drop in rapp_brainstem/utils/senses/. The brainstem auto-discovers *_sense.py at startup; restart the brainstem.
 """
 
 name = "headline"

@@ -31,7 +31,7 @@ TITLE_RE = re.compile(r"\[SENSE\]\s+(@[^/\s]+)/([a-z][a-z0-9_]*)")
 def load_catalog(p: Path) -> dict:
     if p.is_file():
         return json.loads(p.read_text())
-    return {"schema": "rapp-sense-store/1.0", "senses": []}
+    return {"schema": lib_senses.SCHEMA_INDEX, "senses": []}
 
 
 def extract_sense_source(body: str) -> str:

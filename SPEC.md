@@ -84,6 +84,8 @@ The brainstem knows which surface the active request is on (`/chat` is `chat`, `
 
 This is what makes senses *modular per channel* rather than global.
 
+**MCP is transport, not a surface.** An `rapp-mcp` host (a Layer-2 caller of `/chat` — "Chat Is The Only Wire") is just another client of the existing surfaces: it reaches the brainstem over MCP and the sense's delimited block flows back to it the same way it flows to a web frontend. MCP is *not* a new value for `surfaces` — `surfaces` stays the channel set (`chat`/`voice`/`mobile`/`cards`). An MCP request carries one of those surfaces; do **not** submit `surfaces = ["mcp"]` or it will fail `E_UNKNOWN_SURFACE`.
+
 ## 9. Reserved names
 
 These slugs are reserved by the platform: `voice`, `twin`. They're kernel-baked into `kody-w/RAPP/rapp_brainstem/utils/senses/` and cannot be re-published here.
