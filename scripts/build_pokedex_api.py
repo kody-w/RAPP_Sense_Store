@@ -35,6 +35,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import shutil
 import sys
 import time
@@ -96,7 +97,14 @@ def _build_entry(sense: dict) -> dict:
     publisher = sense.get("publisher", "@anon")
     slug = _slug(publisher, name)
     sha = sense.get("sha256") or ""
-    rappid = f"rappid:v2:sense:{publisher}/{name}:{(sha or slug)[:32]}"
+    _owner = re.sub(r"[^a-z0-9]+", "-", publisher.lstrip("@").lower()).strip("-") or "anon"
+    _slugc = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-") or "x"
+    # §6.2 canonical rappid — the 64-hex tail is Hb("rapp/1:rappid", <content sha256 bytes>):
+    # domain-separated, DETERMINISTIC (regenerable), a content-address of the sense — NOT a
+    # name-hash (the cardinal sin) and never the retired v2 string. kind lives in the record.
+    _seed = bytes.fromhex(sha) if re.fullmatch(r"[0-9a-f]{64}", sha or "") else (sha or (_owner+"/"+_slugc)).encode()
+    _tail = __import__("hashlib").sha256(b"rapp/1:rappid\n" + _seed).hexdigest()
+    rappid = f"rappid:@{_owner}/{_slugc}:{_tail}"
 
     return {
         "schema": SCHEMA_API_SENSE,
@@ -118,7 +126,7 @@ def _build_entry(sense: dict) -> dict:
         "sha256":   sha,
 
         # Lineage
-        "parent_rappid": "rappid:v2:prototype:@rapp/origin:0b635450c04249fbb4b1bdb571044dec@github.com/kody-w/RAPP",
+        "parent_rappid": "rappid:@kody-w/rapp:9a8f0a4b5a710e20f4d819a0f37d2a4c9f113b5e78fb3c29e70b54fff48a38f9",
 
         # Asset URLs
         "sprite_url": f"{RAW_PREFIX}/api/v1/sprite/{slug}.svg",
